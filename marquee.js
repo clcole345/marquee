@@ -77,7 +77,7 @@ Only need to call the createMarquee() function and pass through the following pa
         duration: 20000,
         padding: 10,
         marquee_class: '.marquee',
-        container_class: '.marquee-contaniner',
+        container_class: '.marq-contaniner',
         sibling_class: 0,
         hover: true
       };
