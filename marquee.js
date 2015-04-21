@@ -4,7 +4,7 @@
 
 * Author: Conrad Feyt
 * Email: conrad.feyt@gmail.com
-* Version: 1.1
+* Version: 1.2
 * Tested only on modern browsers
 
 
@@ -77,17 +77,40 @@ Only need to call the createMarquee() function and pass through the following pa
         duration: 20000,
         padding: 10,
         marquee_class: '.marquee',
-        container_class: '.marq-contaniner',
+        container_class: '.container',
         sibling_class: 0,
         hover: true
       };
 
       var config = $.extend({}, defaults, settings);
 
+
+      if($(config.marquee_class).width() == 0){
+        console.error('FATAL: marquee css or children css not correct. Width is either set to 0 or the element is collapsing. Make sure overflow is set on the marquee, and the children are postitioned relatively');
+        return;
+      }
+
+      if(typeof $(config.marquee_class) === 'undefined'){
+        console.error('FATAL: marquee class not valid');
+        return;
+      }
+
+      if(typeof $(config.container_class) === 'undefined'){
+        console.error('FATAL: marquee container class not valid');
+        return;
+      }
+
+      if(config.sibling_class != 0 && typeof $(config.sibling_class) === 'undefined'){
+        console.error('FATAL: sibling class container class not valid');
+        return;
+      }
+
+
       var marqueeContent =  $(config.marquee_class).html()
       var containerWidth = $(config.container_class).width();
       var contentWidth = $(config.marquee_class).width();
 
+      
       if (config.sibling_class == 0) { 
         var widthToIgnore = 0;
       } else {
@@ -101,7 +124,6 @@ Only need to call the createMarquee() function and pass through the following pa
       //init vars from input
 
 
-
       console.log(config);
 
       $(config.marquee_class).remove();
@@ -109,7 +131,6 @@ Only need to call the createMarquee() function and pass through the following pa
       if(spawnAmount<2){
           spawnAmount =2;
       }
-
       //initialise positions counters, content 
 
       for (i = 0; i < spawnAmount; i++) {
@@ -158,6 +179,7 @@ Only need to call the createMarquee() function and pass through the following pa
           marqueeManager(marqueeSpawned[i]);
 
       }
+
   }
 
   function marqueeManager(marqueed_el) {
@@ -171,7 +193,6 @@ Only need to call the createMarquee() function and pass through the following pa
                 marqueed_el.currentPos = marqueed_el.containerWidth; //setting margin according to postition
 
             } else {    // this is the first loop
-              
               marqueed_el.timeLeft = (((marqueed_el.totalLength - (marqueed_el.containerWidth - marqueed_el.getPosition()))/ marqueed_el.totalLength)) * marqueed_el.duration;
             }
 
@@ -186,7 +207,7 @@ Only need to call the createMarquee() function and pass through the following pa
   }
 
   function marqueeAnim (marqueeObject){
-    marqueeObject.counter++
+    marqueeObject.counter++;
     marqueeObject.el.clearQueue().animate({'marginLeft': marqueeObject.endPoint+'px'}, marqueeObject.timeLeft, 'linear', function(){marqueeManager(marqueeObject)});
   }
 
