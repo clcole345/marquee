@@ -4,17 +4,17 @@
 
 * Author: Conrad Feyt
 * Email: conrad.feyt@gmail.com
-* Version: 1.2
+* Version: 1.1
 * Tested only on modern browsers
 
 
 // Structure //
 
-  *********************************** - marque-container - *************************************
+  ************************************* - container_class - ************************************
   *                                                                                            *
   *   ******************************* ******************************************************   *
   *   *                             * *                                                    *   *
-  *   * - marquee-content-sibling - * *                 - marquee-content -                *   *
+  *   *      - sibling_class -      * *                  - marquee_class -                 *   *
   *   *                             * *                                                    *   *
   *   ******************************* ******************************************************   *
   *                                                                                            *
@@ -22,26 +22,26 @@
 
 // Usage //
   
-Only need to call the createMarquee() function and pass through the following paramaters:
+Only need to call the createMarquee() function. Optionally: pass through the following paramaters to overwrite defaults:
 
 
     $1 duration:                   controls the speed at which the marquee moves
 
     $2 padding:                    right margin between consecutive marquees. 
 
-    $3 marquee-content:            the actual div or span that will be used to create the marquee - 
+    $3 marquee_class:              class of the actual div or span that will be used to create the marquee - 
                                    multiple marquee items may be created using this item's content. 
                                    This item will be removed from the dom
 
-    $4 marque-container:           the container div in which the marquee content will animate. 
+    $4 container_class:            the container div in which the marquee content will animate. 
 
-    $5 marque-container:           Boolean to indicate whether pause on hover should is required. 
+    $5 hover:                      Boolean to indicate whether pause on hover should is required. 
 
-    $6 marquee-content-sibling :   (optional argument) a sibling item to the marqueed item  that 
+    $6 sibling_class:              a sibling item to the marqueed item  that 
                                    affects the end point position and available space inside the 
                                    container. 
 
-  Eg:  createMarquee(30000, 15, $('.marquee-content'), $('.marquee-contaniner'), true, $('.marquee-content-sibling'));
+  Eg:  createMarquee({duration:30000, padding:20, marquee_class:'.example-marquee', container_class: '.example-container', sibling_class: '.example-sibling', hover: false});
 
 * ============================================================================================================== *
 
