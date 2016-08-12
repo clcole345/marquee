@@ -249,8 +249,6 @@
             
             if(document.hasFocus()){
 	        	 plugin.documentHasFocus = true;
-	        	 //init the scrolling
-	        	 $(plugin.marqueeSpawned[0].el).trigger('mouseleave');
         	}else{
 	        	plugin.documentHasFocus = false;
 	        }
