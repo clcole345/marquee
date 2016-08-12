@@ -179,6 +179,9 @@
 
             var totalDistance =  containerWidth - endPoint;
             
+            
+            
+            
             for (var i = 0; i < spawnAmount; i++) {
             	
             	var newElement = false;
@@ -243,11 +246,15 @@
 
             }
             //end for
+            
             if(document.hasFocus()){
-	        	 this.documentHasFocus = true;
-	        }else{
-	        	this.documentHasFocus = false;
+	        	 plugin.documentHasFocus = true;
+	        	 //init the scrolling
+	        	 $(plugin.marqueeSpawned[0].el).trigger('mouseleave');
+        	}else{
+	        	plugin.documentHasFocus = false;
 	        }
+            
         },
         marqueeManager: function(marqueed_el){
         	var plugin = this;
