@@ -41,3 +41,14 @@ $('.simple-marquee-container').SimpleMarquee();
 ```html
 <link rel="stylesheet" href="css/marquee.css" />
 ```
+
+#Quirk 1: simple-marquee-container DOM created dynamically after an AJAX call
+```javascript
+//quirky stuff when the DOM for the 
+//marquee-container is created dynamically
+//after an AJAX call. If the window is focused
+//it will not re-trigger the 'focus' upon
+//AJAX completion. 
+$(".marquee-1").trigger('mouseenter');
+$(".marquee-1").trigger('mouseleave');
+```
