@@ -224,6 +224,8 @@ function createMarquee(settings) {
 }
 
 function marqueeManager(marqueed_el) {
+ 
+ console.log(marqueed_el);
 
     if (marqueed_el.hovered == false) {
 
