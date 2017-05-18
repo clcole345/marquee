@@ -225,7 +225,7 @@ function createMarquee(settings) {
 
 function marqueeManager(marqueed_el) {
  
- console.log(marqueed_el);
+ console.log(marqueed_el).value();
 
     if (marqueed_el.hovered == false) {
 
