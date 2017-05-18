@@ -223,33 +223,97 @@ function createMarquee(settings) {
     }
 }
 
-console.log(marqueed_el);
 
-function marqueeManager(marqueed_el) {
+//--------------------------------------------------------------------------------
 
-    if (marqueed_el.hovered == false) {
+var marqueed_el1 = document.getElementsByClassName("marquee-1");
+var marqueed_el2 = document.getElementsByClassName("marquee-2");
+var marqueed_el3 = document.getElementsByClassName("marquee-3");
 
-        if (marqueed_el.counter > 0) {  //this is not the first loop
 
-            marqueed_el.timeLeft = marqueed_el.duration;
-            marqueed_el.el.css('left', marqueed_el.containerWidth +'px'); //setting margin
-            marqueed_el.currentPos = marqueed_el.containerWidth;
-            marqueed_el.distanceLeft = marqueed_el.totalDistance - (marqueed_el.containerWidth - marqueed_el.getPosition());
+console.log(marqueed_el1);
+
+function marqueeManager(marqueed_el1) {
+
+    if (marqueed_el1.hovered == false) {
+
+        if (marqueed_el1.counter > 0) {  //this is not the first loop
+
+            marqueed_el1.timeLeft = marqueed_el1.duration;
+            marqueed_el1.el.css('left', marqueed_el1.containerWidth +'px'); //setting margin
+            marqueed_el1.currentPos = marqueed_el1.containerWidth;
+            marqueed_el1.distanceLeft = marqueed_el1.totalDistance - (marqueed_el1.containerWidth - marqueed_el1.getPosition());
 
         } else {    // this is the first loop
 
-            marqueed_el.timeLeft = (((marqueed_el.totalDistance - (marqueed_el.containerWidth - marqueed_el.getPosition()))/ marqueed_el.totalDistance)) * marqueed_el.duration;
+            marqueed_el1.timeLeft = (((marqueed_el1.totalDistance - (marqueed_el1.containerWidth - marqueed_el1.getPosition()))/ marqueed_el1.totalDistance)) * marqueed_el1.duration;
         }
 
     } else {
-        marqueed_el.hovered = false;
-        marqueed_el.currentPos = parseInt(marqueed_el.el.css('left'));
-        marqueed_el.distanceLeft = marqueed_el.totalDistance - (marqueed_el.containerWidth - marqueed_el.getPosition());
-        marqueed_el.timeLeft = (((marqueed_el.totalDistance - (marqueed_el.containerWidth - marqueed_el.currentPos))/ marqueed_el.totalDistance)) * marqueed_el.duration;
+        marqueed_el1.hovered = false;
+        marqueed_el1.currentPos = parseInt(marqueed_el1.el.css('left'));
+        marqueed_el1.distanceLeft = marqueed_el1.totalDistance - (marqueed_el1.containerWidth - marqueed_el1.getPosition());
+        marqueed_el1.timeLeft = (((marqueed_el1.totalDistance - (marqueed_el1.containerWidth - marqueed_el1.currentPos))/ marqueed_el1.totalDistance)) * marqueed_el1.duration;
     }
 
-    marqueeAnim(marqueed_el);
+    marqueeAnim(marqueed_el1);
 }
+
+function marqueeManager(marqueed_el2) {
+
+    if (marqueed_el2.hovered == false) {
+
+        if (marqueed_el2.counter > 0) {  //this is not the first loop
+
+            marqueed_el2.timeLeft = marqueed_el2.duration;
+            marqueed_el2.el.css('left', marqueed_el2.containerWidth +'px'); //setting margin
+            marqueed_el2.currentPos = marqueed_el2.containerWidth;
+            marqueed_el2.distanceLeft = marqueed_el2.totalDistance - (marqueed_el2.containerWidth - marqueed_el2.getPosition());
+
+        } else {    // this is the first loop
+
+            marqueed_el2.timeLeft = (((marqueed_el2.totalDistance - (marqueed_el2.containerWidth - marqueed_el2.getPosition()))/ marqueed_el2.totalDistance)) * marqueed_el2.duration;
+        }
+
+    } else {
+        marqueed_el2.hovered = false;
+        marqueed_el2.currentPos = parseInt(marqueed_el2.el.css('left'));
+        marqueed_el2.distanceLeft = marqueed_el2.totalDistance - (marqueed_el2.containerWidth - marqueed_el2.getPosition());
+        marqueed_el2.timeLeft = (((marqueed_el2.totalDistance - (marqueed_el2.containerWidth - marqueed_el2.currentPos))/ marqueed_el2.totalDistance)) * marqueed_el2.duration;
+    }
+
+    marqueeAnim(marqueed_el2);
+}
+
+function marqueeManager(marqueed_el3) {
+
+    if (marqueed_el3.hovered == false) {
+
+        if (marqueed_el3.counter > 0) {  //this is not the first loop
+
+            marqueed_el3.timeLeft = marqueed_el3.duration;
+            marqueed_el3.el.css('left', marqueed_el3.containerWidth +'px'); //setting margin
+            marqueed_el3.currentPos = marqueed_el3.containerWidth;
+            marqueed_el3.distanceLeft = marqueed_el3.totalDistance - (marqueed_el3.containerWidth - marqueed_el3.getPosition());
+
+        } else {    // this is the first loop
+
+            marqueed_el3.timeLeft = (((marqueed_el3.totalDistance - (marqueed_el3.containerWidth - marqueed_el3.getPosition()))/ marqueed_el3.totalDistance)) * marqueed_el3.duration;
+        }
+
+    } else {
+        marqueed_el3.hovered = false;
+        marqueed_el3.currentPos = parseInt(marqueed_el3.el.css('left'));
+        marqueed_el3.distanceLeft = marqueed_el3.totalDistance - (marqueed_el3.containerWidth - marqueed_el3.getPosition());
+        marqueed_el3.timeLeft = (((marqueed_el3.totalDistance - (marqueed_el3.containerWidth - marqueed_el3.currentPos))/ marqueed_el3.totalDistance)) * marqueed_el3.duration;
+    }
+
+    marqueeAnim(marqueed_el3);
+}
+
+
+
+//----------------------------------------------------------------------------------
 
 function marqueeAnim (marqueeObject){
     marqueeObject.counter++
